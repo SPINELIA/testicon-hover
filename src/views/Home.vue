@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="icons" v-on:mouseover="hoverMenu = true" v-on:mouseout="hoverMenu = false">
+      <img v-if="!hoverMenu"  title="Menu" id="menu-icon" src="../assets/help_outline_24px.svg" alt="menu bar">
+      <img v-else-if="hoverMenu"  title="Menu" id="menu-icon" src="../assets/help_24px.svg" alt="menu bar">
+
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: "Home",
-  components: {
-    HelloWorld,
-  },
+  data: function() {
+        return {
+            hoverMenu: null
+        }
+    },
 };
 </script>
+
+<style scoped>
+  .icons {
+    background: #f1f1f1;
+  }
+</style>
